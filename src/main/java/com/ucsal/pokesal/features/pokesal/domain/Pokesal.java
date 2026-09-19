@@ -42,6 +42,8 @@ public class Pokesal {
     @Column(nullable = false)
     private int defesa;
 
+    private static final double FATOR_LIMITE_FURIA = 0.30;
+
     @Column(nullable = false)
     private int velocidade;
 
@@ -117,6 +119,23 @@ public class Pokesal {
 
     public boolean estaDerrotado() {
         return this.hpAtual <= 0;
+    }
+
+    /**
+     * Requisito Autoral: Verifica se a habilidade passiva Fúria / Adrenalina está ativa.
+     * É ativada quando o HP atual estiver em 30% ou menos do HP máximo.
+     *
+     * @return true se o PokéSal estiver vivo e com HP crítico (<= 30%)
+     */
+    public boolean isFuriaAtiva() {
+        return this.hpAtual > 0 && this.hpAtual <= (int) Math.floor(this.hpMax * FATOR_LIMITE_FURIA);
+    }
+
+    /**
+     * Restaura completamente os pontos de vida do PokéSal ao valor máximo.
+     */
+    public void restaurar() {
+        this.hpAtual = this.hpMax;
     }
 
     public Long getId() {

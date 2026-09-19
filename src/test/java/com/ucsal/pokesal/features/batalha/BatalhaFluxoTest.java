@@ -21,7 +21,7 @@ class BatalhaFluxoTest {
 
     @BeforeEach
     void setUp() {
-        calcularDanoUseCase = new CalcularDanoUseCase();
+        calcularDanoUseCase = new CalcularDanoUseCase((atacante, defensor) -> false);
         historicoAdapter = new HistoricoBatalhaAdapter();
         processarTurnoUseCase = new ProcessarTurnoUseCase(calcularDanoUseCase, historicoAdapter);
     }

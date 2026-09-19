@@ -1,4 +1,4 @@
-.PHONY: help up down status restart build test check sonar clean
+.PHONY: help up down status restart build run seed test check sonar clean
 
 # Variáveis
 MVN = ./mvnw
@@ -19,6 +19,8 @@ help:
 	@echo "   make status   - Exibe o status dos contêineres"
 	@echo "   make restart  - Reinicia os contêineres"
 	@echo "   make build    - Compila e empacota o projeto (Maven package)"
+	@echo "   make run      - Executa a aplicação Spring Boot"
+	@echo "   make seed     - Popula o banco com 12 PokéSals e 4 Treinadores (seed.sql)"
 	@echo "   make test     - Executa todos os testes unitários (JUnit 5)"
 	@echo "   make check    - Executa a análise estática com Checkstyle"
 	@echo "   make sonar    - Executa a análise de qualidade no SonarQube"
@@ -38,6 +40,13 @@ restart: down up
 
 build:
 	$(MVN_CMD) clean package -DskipTests
+
+run:
+	$(MVN_CMD) spring-boot:run
+
+seed:
+	docker cp seed.sql pokesal-postgres:/tmp/seed.sql
+	docker exec pokesal-postgres psql -U postgres -d pokesal_db -f /tmp/seed.sql
 
 test:
 	$(MVN_CMD) test

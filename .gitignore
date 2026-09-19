@@ -32,8 +32,12 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
+.mvn/
+
+# Agentes e Registros de IA
+.agents/
+AI_DECLARATION.md
+prompts_registro.txt
 
 # IDEs and editors
 .idea/
