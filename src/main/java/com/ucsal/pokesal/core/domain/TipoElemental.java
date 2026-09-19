@@ -1,8 +1,5 @@
 package com.ucsal.pokesal.core.domain;
 
-/**
- * Representa os tipos elementais disponíveis no ecossistema PokéSal.
- */
 public enum TipoElemental {
     FOGO("Fogo"),
     AGUA("Água"),

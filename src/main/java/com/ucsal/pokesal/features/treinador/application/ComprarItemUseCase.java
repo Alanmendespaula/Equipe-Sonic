@@ -8,10 +8,6 @@ import com.ucsal.pokesal.features.treinador.domain.Treinador;
 import com.ucsal.pokesal.features.treinador.infrastructure.TreinadorRepository;
 import org.springframework.stereotype.Service;
 
-/**
- * Requisito Autoral: Caso de uso responsável pela compra de itens na loja do Centro PokéSal,
- * validando o saldo em PokéMoedas e o limite de itens da mochila.
- */
 @Service
 public class ComprarItemUseCase {
 
@@ -21,13 +17,6 @@ public class ComprarItemUseCase {
         this.treinadorRepository = treinadorRepository;
     }
 
-    /**
-     * Realiza a compra de um item debitando as moedas e inserindo na mochila do treinador.
-     *
-     * @param treinador treinador comprador
-     * @param item item a ser adquirido
-     * @param preco valor em PokéMoedas do item
-     */
     public void comprarItem(final Treinador treinador, final Item item, final int preco) {
         if (treinador == null) {
             throw new RegraNegocioException("Treinador não pode ser nulo.");

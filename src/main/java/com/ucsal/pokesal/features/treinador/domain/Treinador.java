@@ -14,10 +14,6 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import java.util.Objects;
 
-/**
- * Entidade que representa o Treinador no domínio PokéSal.
- * Contém informações de PokéSal ativo, mochila e saldo de PokéMoedas (Requisito Autoral 3).
- */
 @Entity
 @Table(name = "treinadores")
 public class Treinador {
@@ -42,7 +38,7 @@ public class Treinador {
     private final Mochila mochila = new Mochila();
 
     protected Treinador() {
-        // Construtor padrão JPA
+
     }
 
     public Treinador(final String nome) {
@@ -60,11 +56,6 @@ public class Treinador {
         this.moedas = moedasIniciais;
     }
 
-    /**
-     * Adiciona moedas ao saldo do treinador.
-     *
-     * @param quantidade valor a ser creditado
-     */
     public void adicionarMoedas(final int quantidade) {
         if (quantidade <= 0) {
             throw new RegraNegocioException("A quantidade de moedas a adicionar deve ser maior que zero.");
@@ -72,12 +63,6 @@ public class Treinador {
         this.moedas += quantidade;
     }
 
-    /**
-     * Debita moedas do saldo do treinador.
-     *
-     * @param quantidade valor a ser debitado
-     * @throws SaldoInsuficienteException caso o saldo atual seja menor que a quantidade
-     */
     public void debitarMoedas(final int quantidade) {
         if (quantidade <= 0) {
             throw new RegraNegocioException("A quantidade de moedas a debitar deve ser maior que zero.");

@@ -32,11 +32,9 @@ class BatalhaFluxoTest {
         final Pokesal atacante = new Pokesal("Salmander", TipoElemental.FOGO, 100, 30, 20, 50);
         final Pokesal defensor = new Pokesal("Salvasaur", TipoElemental.PLANTA, 100, 25, 20, 45);
 
-        // FOGO vs PLANTA: mult 2.0x. Base = 30 - (20 * 0.5) = 20. Dano = 20 * 2.0 = 40.
         final int dano = calcularDanoUseCase.calcularDano(atacante, defensor, Terreno.NEUTRO);
         assertEquals(40, dano);
 
-        // Cenário de defesa extrema: deve garantir dano mínimo de 1
         final Pokesal defensorCouraçado = new Pokesal("Salstoise", TipoElemental.AGUA, 100, 10, 200, 30);
         final int danoMinimo = calcularDanoUseCase.calcularDano(atacante, defensorCouraçado, Terreno.NEUTRO);
         assertEquals(1, danoMinimo);
@@ -45,7 +43,7 @@ class BatalhaFluxoTest {
     @Test
     @DisplayName("Combatente com maior velocidade (SPD) deve atacar primeiro no turno")
     void deveRespeitarOrdemDeVelocidadeNoTurno() {
-        // Rapisalt tem SPD 80 e 100 HP, atacará primeiro e derrotará Lentasalt (que tem apenas 10 HP)
+
         final Pokesal atacanteRapido = new Pokesal("Rapisalt", TipoElemental.FOGO, 100, 50, 20, 80);
         final Pokesal defensorLento = new Pokesal("Lentasalt", TipoElemental.PLANTA, 10, 50, 10, 20);
 

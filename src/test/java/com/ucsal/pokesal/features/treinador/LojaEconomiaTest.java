@@ -14,9 +14,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-/**
- * Testes Unitários para o Requisito Autoral 3: Sistema de Economia do Treinador e Loja.
- */
 class LojaEconomiaTest {
 
     private ComprarItemUseCase comprarItemUseCase;
@@ -60,7 +57,7 @@ class LojaEconomiaTest {
     @Test
     @DisplayName("Deve lançar LimiteItensExcedidoException ao tentar comprar item com a mochila cheia")
     void deveLancarExcecaoQuandoMochilaCheia() {
-        // Enche a mochila com 2 itens
+
         treinador.getMochila().adicionarItem(new Item("Item 1", 20));
         treinador.getMochila().adicionarItem(new Item("Item 2", 20));
 

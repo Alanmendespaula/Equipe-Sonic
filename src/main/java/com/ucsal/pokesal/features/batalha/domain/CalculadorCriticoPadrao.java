@@ -5,10 +5,6 @@ import java.security.SecureRandom;
 import java.util.Random;
 import org.springframework.stereotype.Component;
 
-/**
- * Requisito Autoral: Implementação padrão do cálculo de Acerto Crítico.
- * Chance base de 15%, com acréscimo de 5% caso o atacante seja mais veloz que o defensor.
- */
 @Component
 public class CalculadorCriticoPadrao implements CalculadorCritico {
 

@@ -5,9 +5,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- * Repositório de persistência para as entidades PokéSal.
- */
 @Repository
 public interface PokesalRepository extends JpaRepository<Pokesal, Long> {
 

@@ -1,9 +1,5 @@
 package com.ucsal.pokesal.features.batalha.domain;
 
-/**
- * Requisito Autoral: Representa o resultado detalhado de um cálculo de dano,
- * contendo informações sobre acerto crítico e ativação de passiva.
- */
 public class ResultadoDano {
 
     private final int valorDano;

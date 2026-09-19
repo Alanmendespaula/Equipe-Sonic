@@ -7,9 +7,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Caso de uso responsável pelo gerenciamento e seleção dos PokéSals iniciais.
- */
 @Service
 public class SelecionarInicialUseCase {
 
@@ -19,20 +16,11 @@ public class SelecionarInicialUseCase {
         this.pokesalRepository = pokesalRepository;
     }
 
-    /**
-     * Retorna a lista de todos os PokéSals disponíveis para escolha inicial.
-     */
     @Transactional(readOnly = true)
     public List<Pokesal> listarIniciaisDisponiveis() {
         return pokesalRepository.findAll();
     }
 
-    /**
-     * Seleciona um PokéSal inicial pelo seu identificador.
-     *
-     * @param id identificador do PokéSal
-     * @return entidade do PokéSal selecionado
-     */
     @Transactional(readOnly = true)
     public Pokesal selecionarPorId(final Long id) {
         return pokesalRepository.findById(id)

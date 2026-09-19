@@ -8,10 +8,6 @@ import com.ucsal.pokesal.features.batalha.domain.Terreno;
 import com.ucsal.pokesal.features.pokesal.domain.Pokesal;
 import org.springframework.stereotype.Service;
 
-/**
- * Caso de uso responsável pelo cálculo de dano entre dois PokéSals considerando terreno, tipos elementais,
- * acerto crítico (Requisito Autoral 1) e passiva de Fúria/Adrenalina (Requisito Autoral 2).
- */
 @Service
 public class CalcularDanoUseCase {
 
@@ -32,14 +28,6 @@ public class CalcularDanoUseCase {
         this.calculadorCritico = calculadorCritico;
     }
 
-    /**
-     * Calcula o dano detalhado causado pelo atacante ao defensor.
-     *
-     * @param atacante PokéSal que está executando o golpe
-     * @param defensor PokéSal que está recebendo o golpe
-     * @param terreno condição atual da arena
-     * @return objeto ResultadoDano com valor final, flag de crítico e flag de fúria
-     */
     public ResultadoDano calcular(final Pokesal atacante, final Pokesal defensor, final Terreno terreno) {
         final double multElemental = MatrizVantagem.calcularMultiplicador(atacante.getTipo(), defensor.getTipo());
         final double multTerreno = (terreno != null)
@@ -62,14 +50,6 @@ public class CalcularDanoUseCase {
         return new ResultadoDano(valorEfetivo, critico, furia);
     }
 
-    /**
-     * Calcula o dano final (compatibilidade com fluxos simplificados).
-     *
-     * @param atacante PokéSal atacante
-     * @param defensor PokéSal defensor
-     * @param terreno condição da arena
-     * @return valor numérico inteiro de dano
-     */
     public int calcularDano(final Pokesal atacante, final Pokesal defensor, final Terreno terreno) {
         return calcular(atacante, defensor, terreno).getValorDano();
     }

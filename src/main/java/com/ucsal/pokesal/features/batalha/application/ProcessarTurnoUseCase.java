@@ -6,10 +6,6 @@ import com.ucsal.pokesal.features.batalha.infrastructure.HistoricoBatalhaAdapter
 import com.ucsal.pokesal.features.pokesal.domain.Pokesal;
 import org.springframework.stereotype.Service;
 
-/**
- * Orquestra o processamento de um turno de batalha, determinando prioridade de velocidade,
- * resolução de dano, golpes críticos e ativação de passivas autorais.
- */
 @Service
 public class ProcessarTurnoUseCase {
 
@@ -22,15 +18,8 @@ public class ProcessarTurnoUseCase {
         this.historicoAdapter = historicoAdapter;
     }
 
-    /**
-     * Processa a rodada de ataque entre dois combatentes.
-     *
-     * @param combatenteA primeiro combatente
-     * @param combatenteB segundo combatente
-     * @param terreno condição da arena
-     */
     public void processarTurno(final Pokesal combatenteA, final Pokesal combatenteB, final Terreno terreno) {
-        // Validação de SPD (Velocidade) para definir o primeiro atacante
+
         final Pokesal primeiro;
         final Pokesal segundo;
 
@@ -42,10 +31,8 @@ public class ProcessarTurnoUseCase {
             segundo = combatenteA;
         }
 
-        // Primeiro ataque
         executarAtaque(primeiro, segundo, terreno, false);
 
-        // Contra-ataque se o segundo combatente não foi derrotado
         if (!segundo.estaDerrotado()) {
             executarAtaque(segundo, primeiro, terreno, true);
         } else {

@@ -16,19 +16,16 @@ class PokesalBoundaryTest {
     @Test
     @DisplayName("Deve lançar RegraNegocioException ao criar PokéSal com valores de borda inválidos (zero ou negativos)")
     void deveValidarValoresDeBordaDosAtributos() {
-        // HP inválido
+
         assertThrows(RegraNegocioException.class, () ->
                 new Pokesal("Sal", TipoElemental.FOGO, 0, 10, 10, 10));
 
-        // Ataque inválido
         assertThrows(RegraNegocioException.class, () ->
                 new Pokesal("Sal", TipoElemental.FOGO, 50, -5, 10, 10));
 
-        // Defesa inválida
         assertThrows(RegraNegocioException.class, () ->
                 new Pokesal("Sal", TipoElemental.FOGO, 50, 10, 0, 10));
 
-        // Velocidade inválida
         assertThrows(RegraNegocioException.class, () ->
                 new Pokesal("Sal", TipoElemental.FOGO, 50, 10, 10, -1));
     }

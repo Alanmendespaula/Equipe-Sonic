@@ -2,9 +2,6 @@ package com.ucsal.pokesal.features.treinador.domain;
 
 import java.util.Objects;
 
-/**
- * Representa um item utilizável na mochila do treinador (ex: Poção de Cura).
- */
 public class Item {
 
     private final String nome;

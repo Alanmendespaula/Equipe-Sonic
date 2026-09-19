@@ -1,9 +1,7 @@
 .PHONY: help up down status restart build run seed test check sonar clean
 
-# Variáveis
 MVN = ./mvnw
 ifeq ($(OS),Windows_NT)
-    # Se mvnw.cmd existir, usa ele caso mvnw falhe no Windows cmd puro
     MVN_CMD = mvnw.cmd
 else
     MVN_CMD = ./mvnw

@@ -6,18 +6,9 @@ import com.ucsal.pokesal.features.treinador.domain.Item;
 import com.ucsal.pokesal.features.treinador.domain.Treinador;
 import org.springframework.stereotype.Service;
 
-/**
- * Caso de uso responsável pelo consumo de um item da mochila do treinador sobre seu PokéSal.
- */
 @Service
 public class UsarItemUseCase {
 
-    /**
-     * Aplica o efeito do item sobre o PokéSal e remove o item da mochila do treinador.
-     *
-     * @param treinador treinador portador do item
-     * @param item item a ser consumido
-     */
     public void usarItem(final Treinador treinador, final Item item) {
         if (treinador == null) {
             throw new RegraNegocioException("Treinador inválido.");

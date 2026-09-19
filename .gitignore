@@ -1,16 +1,7 @@
-# Compiled class file
 *.class
-
-# Log file
 *.log
-
-# BlueJ files
 *.ctxt
-
-# Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -18,12 +9,8 @@
 *.zip
 *.tar.gz
 *.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
-
-# Maven
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -33,13 +20,9 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/
-
-# Agentes e Registros de IA
 .agents/
 AI_DECLARATION.md
 prompts_registro.txt
-
-# IDEs and editors
 .idea/
 *.iml
 *.ipr
@@ -49,7 +32,5 @@ prompts_registro.txt
 .classpath
 .project
 .factorypath
-
-# OS files
 .DS_Store
 Thumbs.db

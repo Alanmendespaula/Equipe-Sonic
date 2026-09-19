@@ -25,9 +25,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * Ponto de entrada principal da aplicação PokéSal Simulator com interface de linha de comando (CLI).
- */
 @SpringBootApplication
 public class Main implements CommandLineRunner {
 
@@ -244,7 +241,6 @@ public class Main implements CommandLineRunner {
             final Long id = Long.parseLong(entrada);
             final Pokesal escolhido = selecionarInicialUseCase.selecionarPorId(id);
 
-            // Desassocia de outro treinador caso já esteja associado para respeitar a constraint UNIQUE
             final List<Treinador> outros = treinadorRepository.findAll();
             for (final Treinador outro : outros) {
                 if (!outro.getId().equals(treinador.getId()) && outro.getPokesalAtivo() != null

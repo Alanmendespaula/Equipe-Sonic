@@ -15,9 +15,6 @@ import java.util.Random;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-/**
- * Testes Unitários para o Requisito Autoral 1: Mecânica de Golpe Crítico.
- */
 class CriticoTest {
 
     @Test
@@ -29,8 +26,6 @@ class CriticoTest {
         final Pokesal atacante = new Pokesal("Salmander", TipoElemental.FOGO, 100, 30, 20, 50);
         final Pokesal defensor = new Pokesal("Salvasaur", TipoElemental.PLANTA, 100, 25, 20, 45);
 
-        // Dano normal FOGO vs PLANTA: (30 - 10) * 2.0 = 40.
-        // Com crítico (1.5x): 40 * 1.5 = 60.
         final ResultadoDano resultado = useCase.calcular(atacante, defensor, Terreno.NEUTRO);
 
         assertTrue(resultado.isCritico());
@@ -55,7 +50,7 @@ class CriticoTest {
     @Test
     @DisplayName("CalculadorCriticoPadrao deve calcular chance considerando velocidade relativa")
     void deveAumentarChanceQuandoMaisRapido() {
-        // Random retornando valor abaixo de 0.20 (0.18) acerta crítico se for mais veloz (chance = 0.15 + 0.05 = 0.20)
+
         final Random randomMaisRapido = new Random() {
             @Override
             public double nextDouble() {

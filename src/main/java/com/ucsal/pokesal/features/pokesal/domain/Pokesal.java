@@ -12,9 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.util.Objects;
 
-/**
- * Entidade de domínio representando uma criatura PokéSal e seus atributos fundamentais.
- */
 @Entity
 @Table(name = "pokesals")
 public class Pokesal {
@@ -48,7 +45,7 @@ public class Pokesal {
     private int velocidade;
 
     protected Pokesal() {
-        // Construtor padrão para o JPA/Hibernate
+
     }
 
     public Pokesal(final String nome,
@@ -93,11 +90,6 @@ public class Pokesal {
         }
     }
 
-    /**
-     * Aplica dano ao HP atual, garantindo que não fique negativo.
-     *
-     * @param dano valor do dano sofrido
-     */
     public void sofrerDano(final int dano) {
         if (dano <= 0) {
             return;
@@ -105,11 +97,6 @@ public class Pokesal {
         this.hpAtual = Math.max(0, this.hpAtual - dano);
     }
 
-    /**
-     * Cura pontos de vida sem ultrapassar o HP máximo.
-     *
-     * @param pontosCura quantidade de HP restaurado
-     */
     public void curar(final int pontosCura) {
         if (pontosCura <= 0 || estaDerrotado()) {
             return;
@@ -121,19 +108,10 @@ public class Pokesal {
         return this.hpAtual <= 0;
     }
 
-    /**
-     * Requisito Autoral: Verifica se a habilidade passiva Fúria / Adrenalina está ativa.
-     * É ativada quando o HP atual estiver em 30% ou menos do HP máximo.
-     *
-     * @return true se o PokéSal estiver vivo e com HP crítico (<= 30%)
-     */
     public boolean isFuriaAtiva() {
         return this.hpAtual > 0 && this.hpAtual <= (int) Math.floor(this.hpMax * FATOR_LIMITE_FURIA);
     }
 
-    /**
-     * Restaura completamente os pontos de vida do PokéSal ao valor máximo.
-     */
     public void restaurar() {
         this.hpAtual = this.hpMax;
     }
